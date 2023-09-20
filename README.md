@@ -27,18 +27,18 @@ Make sure you have Ruby and Rails installed on your system. You can download and
 
 
 ## To clone the repository, follow these steps:
-- Clone this repository to your local machine.
-    git clone https://github.com/penaherrera/xtwitter.git
+Clone this repository to your local machine.
+- git clone https://github.com/penaherrera/xtwitter.git
 
-- Navigate to the project directory.
-    cd xtwitter
+Navigate to the project directory.
+- cd xtwitter
 
 ### In case doesn't work try:
-- Clone the branch.
-    git clone -b Practice-Lab-1-Twitter-Data-Modeling https://github.com/penaherrera/xtwitter.git
+Clone the branch.
+-    git clone -b Practice-Lab-1-Twitter-Data-Modeling https://github.com/penaherrera/xtwitter.git
     
-- Navigate to the project directory.
-    cd xtwitter
+ Navigate to the project directory.
+-    cd xtwitter
 
 
 ### To create the database and run the necessary migrations, follow these steps:
