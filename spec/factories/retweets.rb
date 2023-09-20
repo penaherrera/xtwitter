@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :tweet do
-    body { "MyString" }
+  factory :retweet do
+    original_tweet_id { "MyString" }
     author_username { "MyString" }
   end
 end

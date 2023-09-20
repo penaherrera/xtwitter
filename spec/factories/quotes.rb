@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :reply do
+  factory :quote do
     content { "MyString" }
-    tweet_id { "MyString" }
+    quoted_tweet_id { "MyString" }
     author_username { "MyString" }
   end
 end
