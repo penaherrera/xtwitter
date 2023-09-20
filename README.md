@@ -23,8 +23,7 @@ In this repository, we are creating the migrations and associations necessary to
 ## Getting Started:
 Ruby and Rails Installation:
 
-Make sure you have Ruby and Rails installed on your system. You can download and install them from the official Ruby and Rails websites or use a version management tool like RVM or rbenv.
-Database Setup:
+Make sure you have Ruby and Rails installed on your system. You can download and install them from the official Ruby and Rails websites or use a version management tool like RVM.
 
 
 ## To clone the repository, follow these steps:
