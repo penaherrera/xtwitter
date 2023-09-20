@@ -1,0 +1,2 @@
+class CreateJoinTableHastagsTweet < ApplicationRecord
+end

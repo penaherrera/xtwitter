@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_20_132727) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_20_154932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,17 +25,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_20_132727) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.string "tweet_id"
-    t.string "author_username"
+    t.bigint "tweet_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_bookmarks_on_author_id"
+    t.index ["tweet_id"], name: "index_bookmarks_on_tweet_id"
   end
 
   create_table "followers", force: :cascade do |t|
-    t.string "follower_username"
-    t.string "following_username"
+    t.bigint "follower_id", null: false
+    t.bigint "following_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["following_id"], name: "index_followers_on_following_id"
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -44,53 +48,63 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_20_132727) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "hastag_tables", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "likes", force: :cascade do |t|
-    t.string "tweet_id"
-    t.string "author_username"
+    t.bigint "tweet_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_likes_on_author_id"
+    t.index ["tweet_id"], name: "index_likes_on_tweet_id"
   end
 
   create_table "quotes", force: :cascade do |t|
     t.string "content"
-    t.string "quoted_tweet_id"
-    t.string "author_username"
+    t.bigint "tweet_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_quotes_on_author_id"
+    t.index ["tweet_id"], name: "index_quotes_on_tweet_id"
   end
 
   create_table "replies", force: :cascade do |t|
     t.string "content"
-    t.string "tweet_id"
-    t.string "author_username"
+    t.bigint "tweet_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_replies_on_author_id"
+    t.index ["tweet_id"], name: "index_replies_on_tweet_id"
   end
 
   create_table "retweets", force: :cascade do |t|
-    t.string "original_tweet_id"
-    t.string "author_username"
+    t.bigint "tweet_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.string "tweet_id"
-    t.string "hashtag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_retweets_on_author_id"
+    t.index ["tweet_id"], name: "index_retweets_on_tweet_id"
   end
 
   create_table "tweets", force: :cascade do |t|
     t.string "body"
-    t.string "author_username"
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_tweets_on_author_id"
   end
 
+  add_foreign_key "bookmarks", "authors"
+  add_foreign_key "bookmarks", "tweets"
+  add_foreign_key "followers", "authors", column: "follower_id"
+  add_foreign_key "followers", "authors", column: "following_id"
+  add_foreign_key "likes", "authors"
+  add_foreign_key "likes", "tweets"
+  add_foreign_key "quotes", "authors"
+  add_foreign_key "quotes", "tweets"
+  add_foreign_key "replies", "authors"
+  add_foreign_key "replies", "tweets"
+  add_foreign_key "retweets", "authors"
+  add_foreign_key "retweets", "tweets"
+  add_foreign_key "tweets", "authors"
 end

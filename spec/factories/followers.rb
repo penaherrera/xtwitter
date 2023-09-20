@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :follower do
-    follower_username { "MyString" }
-    following_username { "MyString" }
+    follower_username { nil }
+    following_username { nil }
   end
 end
