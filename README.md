@@ -49,7 +49,7 @@ Run the following commands to set up the database and execute the migrations:
 ## Running the Application:
 
 Once the database is set up, you can start the Rails server:
--rails server
+- rails server
 
 ## Testing:
 
