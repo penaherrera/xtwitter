@@ -4,5 +4,5 @@ class Quote < ApplicationRecord
 
   # Validations
   validates :content, length: { maximum: 255 }, presence: true
-  validates_associated :tweet, :author
+
 end

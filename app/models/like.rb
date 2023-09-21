@@ -6,6 +6,5 @@ class Like < ApplicationRecord
 
 
 
-  validates_associated :tweet, :author
   validates_uniqueness_of :author_id, scope: :tweet_id
 end

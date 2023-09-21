@@ -4,7 +4,6 @@ class Retweet < ApplicationRecord
 
   #validations
 
-  validates :body, length: { maximum: 255 }, allow_nil: true
 
-  validates_associated :tweet, :author
+
 end
