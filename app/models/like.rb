@@ -3,5 +3,9 @@ class Like < ApplicationRecord
   belongs_to :author
 
   #validations
-  
+
+
+
+  validates_associated :tweet, :author
+  validates_uniqueness_of :author_id, scope: :tweet_id
 end
