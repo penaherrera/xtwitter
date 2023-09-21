@@ -15,8 +15,9 @@ class Author < ApplicationRecord
     #validations
     validates :email, uniqueness: true, presence: true
     validates :username, uniqueness: true, presence: true
-    validates :password, length:{ maximum: 12 }, presence: true, format: { 
-      with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@\/\*\-\+\_])[A-Za-z\d!@\/\*\-\+\_]{8,}\z/, 
-      message: "Password must contain at least: 1 Capital letter, 1 Lower letter, 1 Special character, 1 Number." 
+    validates :password, presence: true, length: { minimum:12 }, format: {
+      with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@\/\*\-\+\_])[A-Za-z\d!@\/\*\-\+\_\/\^\[\!\@\#\$\%\^\&\*\(\)\,\.\?\"\:\{\}\|\<\>\]\+\$\/]{8,}\z/,
     }
+
+    validates_associated :tweet, :author, :bookmark, :like, :quote, :reply, :retweet
   end
