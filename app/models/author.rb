@@ -19,5 +19,6 @@ class Author < ApplicationRecord
       with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@\/\*\-\+\_])[A-Za-z\d!@\/\*\-\+\_\/\^\[\!\@\#\$\%\^\&\*\(\)\,\.\?\"\:\{\}\|\<\>\]\+\$\/]{8,}\z/,
     }
 
-    validates_associated :tweet, :author, :bookmark, :like, :quote, :reply, :retweet
+    validates_associated :tweets, :bookmarks, :likes, :quotes, :replies, :retweets
+
   end
