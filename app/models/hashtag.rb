@@ -1,8 +1,6 @@
 class Hashtag < ApplicationRecord
-    # validations
     validates :name, presence: true
   
-    # Method to create a hashtag
     def self.create_hashtag(tweet)
       tweet_body = tweet.body
       tweet_body_array = tweet_body.split

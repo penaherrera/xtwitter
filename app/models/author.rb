@@ -12,7 +12,6 @@ class Author < ApplicationRecord
     has_many :following_relationships, class_name: "Follower", foreign_key: "follower_username"
     has_many :following, through: :following_relationships, source: :following
   
-    #validations
     validates :email, uniqueness: true, presence: true
     validates :username, uniqueness: true, presence: true
     validates :password, presence: true, length: { minimum:12 }, format: {
