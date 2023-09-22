@@ -34,7 +34,7 @@ class Hashtag < ApplicationRecord
           return "Hashtag creation failed."
         end
       else
-        return "No repeated words found in the tweet."
+        return "Unable to create hashtag, no repeated words"
       end
     end
   end
