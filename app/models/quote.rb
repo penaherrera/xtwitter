@@ -5,4 +5,6 @@ class Quote < ApplicationRecord
   # Validations
   validates :content, length: { maximum: 255 }, presence: true
 
+  #Scopes
+  scope :quotes_from_author, ->(author_id) { where(author_id: author_id) }
 end
