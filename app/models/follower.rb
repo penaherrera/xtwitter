@@ -4,4 +4,8 @@ class Follower < ApplicationRecord
 
   # validations
   validates_uniqueness_of :follower_username, scope: :following_username
+
+  #Scopes
+  scope :followers_from_author, ->(author_id) { where(author_id: author_id) }
+
 end
