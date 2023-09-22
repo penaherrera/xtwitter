@@ -23,7 +23,7 @@ Based on the models and migrations you created in the previous practice add the 
 
 - QuoteTweet: Create a method that encapsulates the retweet logic accepting a user an a text body as parameter
 
--Like a tweet: Create a method that encapsulates the like logic accepting a user
+- Like a tweet: Create a method that encapsulates the like logic accepting a user
 
 - Hashtag creation Method: Create a method that encapsulates the logic to scan a tweet body text and creates a new hashtag if it doesn’t exists and creates the new association between tweet and hashtag
 
