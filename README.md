@@ -2,41 +2,30 @@
 
 **Exercise Requirements:**
 
-Based on the models and migrations you created in the previous practice add the following validations to your models:
+Based on the models and migrations you created in the previous practice add the following query methods to your models:
 
-- Tweet Model:
 
-    Add presence validation for a tweet body but only when is a tweet or a quote, when is a retweet it should be null
-    Add 255 characters length validation 
+- User tweets Scope: Create a new scope that retrieves the tweets of a user
 
-- Replies Model
+- Tweets and Replies: Create a new scope that retrieves the tweets and replies of that same user
 
-    Add presence validation for the reply body
-    Add 255 characters length validation 
+- Followers Count: Create a new scope that retrieves the number of followers a user has
 
-- User Model
+- Following Count: Create a new scope that retrieves the number of users a user follows
 
-    Add presence validation for email and username
-    Add Uniqueness validation for email and username
-    Add presence validation for password
-    Add Length validation of 12 characters minimum
-    Add Format validation At least 1 uppercase letter, at least 1 lowercase letter, at least 1 number and at least 1 special character like !@/*-+_
-    if password field didn't exist before in your model add it with a new migration and apply the corresponding validations
+- Retweets counts: Create a new scope that retrieves the number of retweets
 
-- Hashtag
+- Quotes count: Create a new scope that retrieves the number of quotes
 
-    Add presence validation for a hashtag name
+- Bookmarked tweets: Creates a new scope that retrieves the bookmarked tweets by a user
 
-- Likes
+- Retweet method: Create a method that encapsulates the retweet logic accepting a user a parameter
 
-    Add uniqueness validation for tweet_id and user_id, a user can only like a tweet once
+- QuoteTweet: Create a method that encapsulates the retweet logic accepting a user an a text body as parameter
 
-- Follower
+- Like a tweet: Create a method that encapsulates the like logic accepting a user
 
-    Add uniqueness validation for follower_id and follwee_id, a user can only follows another user once
-
-- In additional to the validations requested above, you should add association validations to all your model
-
+- Hashtag creation Method: Create a method that encapsulates the logic to scan a tweet body text and creates a new hashtag if it doesn’t exists and creates the new association between tweet and hashtag
 
 ## Requirements and dependencies:
 
