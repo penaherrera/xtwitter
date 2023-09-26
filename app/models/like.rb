@@ -4,17 +4,20 @@ class Like < ApplicationRecord
 
   validates_uniqueness_of :author_id, scope: :tweet_id
 
-
   def self.create_like(author, tweet)
-    like = Like.new(
-      author_id: author.id,
-      tweet_id: tweet.id,
-    )
+    if author && tweet
+      like = Like.new(
+        author_id: author.id,
+        tweet_id: tweet.id,
+      )
 
-    if like.save
-      return "Like created successfully."
+      if like.save
+        return "Like created successfully."
+      else
+        return "Like creation failed."
+      end
     else
-      return "Like creation failed."
+      return "Both author and tweet must be provided."
     end
   end
 end
