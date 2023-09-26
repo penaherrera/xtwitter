@@ -7,6 +7,11 @@ RSpec.describe Like, type: :model do
     it { should belong_to(:tweet) }
   end
 
+  describe 'Associations' do
+    it { should belong_to(:author) }
+    it { should belong_to(:tweet) }
+  end
+
   describe 'Validations' do
     let(:author) { create(:author) }
     let(:tweet) { create(:tweet) }

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
-  #Test for Associations
+
   describe 'Associations' do
     it { should belong_to(:author) }
     it { should have_many(:replies) }
