@@ -2,7 +2,7 @@ class Bookmark < ApplicationRecord
   belongs_to :tweet
   belongs_to :author
 
-  scope :boorkmarks_from_author, ->(author_id) { where(author_id: author_id) }
+  scope :bookmarks_from_author, ->(author_id) { where(author_id: author_id) }
 
   def self.create_bookmark(author, tweet)
     if author && tweet
