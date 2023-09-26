@@ -20,7 +20,7 @@ RSpec.describe Reply, type: :model do
         tweet = create(:tweet, author: author)
         tweet2= create(:tweet, author: author)
   
-        #this line is just to create the quote content with Faker
+       
         reply1 = create(:reply, author: author2, tweet: tweet)
         reply2 = create(:reply, author: author2, tweet: tweet2)
     
