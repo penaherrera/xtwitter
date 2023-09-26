@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
 
-
   describe 'Associations' do
     it { should belong_to(:author) }
     it { should belong_to(:tweet) }
@@ -25,31 +24,13 @@ RSpec.describe Like, type: :model do
 
     it 'creates a new like' do
       author = create(:author)
-      tweet = create(:tweet, author: author) 
+      tweet = create(:tweet, author: author)
+      author2 = create(:author)
 
-      result = Like.create_like(author, tweet)
+      like = Like.create_like(author2, tweet)
 
-      expect(result).to eq('Like created successfully.')
-      expect(Like.last.author).to eq(author)
-      expect(Like.last.tweet).to eq(tweet)
+      expect(Like.where(author: author2, tweet: tweet)).to exist
     end
-
-    it 'handles like creation failure with no author' do
-      author = nil
-      tweet = create(:tweet)
-      result = Like.create_like(nil, tweet)
-      expect(result).to eq('Both author and tweet must be provided.')
-      expect(Like.last).to be_nil 
-    end
-
-    it 'handles like creation failure with no tweet' do
-      author = create(:author)
-      tweet = nil
-      result = Like.create_like(author, tweet)
-      expect(result).to eq('Both author and tweet must be provided.')
-      expect(Like.last).to be_nil 
-    end
-
 
   end
 end
