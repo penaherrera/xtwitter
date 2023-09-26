@@ -12,5 +12,22 @@ RSpec.describe Quote, type: :model do
     it {should validate_presence_of(:content)}
   end
 
+  describe 'create_quote' do
+
+    it 'creates a new quote' do
+
+      author = create(:author)
+      author2 = create(:author)
+      tweet = create(:tweet, author: author)
+      quote = create(:quote, author: author, tweet: tweet)
+  
+  
+      create_quote = Quote.create_quote(quote.content, author2, tweet)
+  
+      expect(Quote.where(author: author2, tweet: tweet)).to exist
+    end
+
+
+  end
 
 end
