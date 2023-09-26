@@ -9,13 +9,11 @@ RSpec.describe Tweet, type: :model do
     it { should have_many(:retweets) }
   end
 
-  #Test for Validations
   describe 'Validations' do
     it { should validate_presence_of(:body) }
     it { should validate_length_of(:body).is_at_most(255) }
   end
 
-  #Test for Scopes
   describe 'Scopes' do
     it 'returns tweets from a specific author' do
       author = create(:author) 
@@ -29,7 +27,6 @@ RSpec.describe Tweet, type: :model do
     end
   end
 
-  #create_new_tweet
   describe '.create_new_tweet' do
     it 'creates a new tweet' do
       author = create(:author) 
