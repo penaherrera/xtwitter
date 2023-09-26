@@ -2,10 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
 
-  describe 'Associations' do
-    it { should belong_to(:author) }
-    it { should belong_to(:tweet) }
-  end
 
   describe 'Associations' do
     it { should belong_to(:author) }
@@ -16,7 +12,7 @@ RSpec.describe Like, type: :model do
     let(:author) { create(:author) }
     let(:tweet) { create(:tweet) }
 
-    it 'validates uniqueness of author_id within the scope of tweet_id' do
+    it 'Scopes' do
       create(:like, author: author, tweet: tweet)
 
       like = build(:like, author: author, tweet: tweet)
