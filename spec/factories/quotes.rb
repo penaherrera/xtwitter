@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :quote do
-    content { "MyString" }
-    quoted_tweet_id { nil }
-    author_username { nil }
+    body { Faker::Lorem.characters(number: 255) }
+    association :author
+    association :tweet
   end
 end
