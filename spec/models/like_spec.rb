@@ -33,4 +33,19 @@ RSpec.describe Like, type: :model do
     end
 
   end
+
+
+  it 'handles like creation failure' do
+
+    author = create(:author)
+    tweet = create(:tweet, author: author)
+    author2 = nil 
+
+    like = Like.create_like(author2, tweet)
+
+    expect(like).to eq('Both author and tweet must be provided.')
+    expect(Bookmark.last).to be_nil
+
+
+  end
 end
