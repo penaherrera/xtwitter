@@ -30,7 +30,7 @@ class Hashtag < ApplicationRecord
         )
   
         if new_hashtag.save
-          return "Hashtag created successfully: #{hashtag_word}"
+          return "Hashtag created successfully"
         else
           return "Hashtag creation failed."
         end
