@@ -1,5 +1,8 @@
 class Hashtag < ApplicationRecord
-    validates :name, presence: true
+    
+  has_many :taggings, class_name: 'CreateJoinTableHastagsTweet'
+  has_many :tweets, through: :taggings
+  validates :name, presence: true
   
     def self.create_hashtag(tweet)
       tweet_body = tweet.body

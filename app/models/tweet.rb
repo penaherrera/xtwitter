@@ -3,6 +3,8 @@ class Tweet < ApplicationRecord
   has_many :replies
   has_many :quotes
   has_many :retweets
+  has_many :taggings, class_name: 'CreateJoinTableHastagsTweet'
+  has_many :hashtags, through: :taggings
   validates :body, length:{ maximum: 255 }, presence: true
 
   scope :tweets_from_author, ->(author_id) { where(author_id: author_id) }
