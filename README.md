@@ -26,7 +26,7 @@ Navigate to the project directory.
 
 ### In case doesn't work try:
 Clone the branch.
--    git clone -b m2-practice-lab-2 https://github.com/penaherrera/xtwitter.git
+-    git clone -b m3-practice-lab-1 https://github.com/penaherrera/xtwitter.git
     
  Navigate to the project directory.
 -    cd xtwitter
