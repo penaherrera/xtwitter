@@ -45,5 +45,19 @@ RSpec.describe Bookmark, type: :model do
 
       expect(Bookmark.where(author: author2, tweet: tweet)).to exist
     end
+
+    it 'handles bookmark creation failure' do
+
+      author = create(:author)
+      author2 = nil 
+      tweet = create(:tweet, author: author)
+
+      bookmark = Bookmark.create_bookmark(author2, tweet)
+      expect(bookmark).to eq('Both author and tweet must be provided.')
+      expect(Bookmark.last).to be_nil
+
+
+    end
+
   end
 end
