@@ -58,11 +58,12 @@ RSpec.describe Quote, type: :model do
 
       author = create(:author)
       tweet = create(:tweet, author: author)
-      author2 = nil 
+      author2 = create(:author)
+      quote_content = nil
   
-      quote = Quote.create_quote(author2, tweet)
+      quote = Quote.create_quote(quote_content, author2, tweet)
   
-      expect(quote).to eq('Both author and tweet must be provided.')
+      expect(quote).to eq('Quote creation failed.')
       expect(Quote.last).to be_nil
   
   
