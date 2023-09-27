@@ -53,6 +53,22 @@ RSpec.describe Quote, type: :model do
       expect(Quote.where(author: author2, tweet: tweet)).to exist
     end
 
+    
+    it 'handles quote creation failure' do
+
+      author = create(:author)
+      tweet = create(:tweet, author: author)
+      author2 = nil 
+  
+      quote = Quote.create_quote(author2, tweet)
+  
+      expect(quote).to eq('Both author and tweet must be provided.')
+      expect(Quote.last).to be_nil
+  
+  
+    end
+
+
   end
 
 end

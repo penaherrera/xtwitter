@@ -44,7 +44,7 @@ RSpec.describe Like, type: :model do
     like = Like.create_like(author2, tweet)
 
     expect(like).to eq('Both author and tweet must be provided.')
-    expect(Bookmark.last).to be_nil
+    expect(Like.last).to be_nil
 
 
   end
