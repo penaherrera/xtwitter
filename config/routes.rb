@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tweets do
     member do
+      get 'stats', to: 'tweets#tweet_stats'
       post 'create', to: 'tweets#create'
       put 'update', to: 'tweets#update'
       post 'reply', to: 'replies#create'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :authors do
     member do
       get 'tweets', to: 'tweets#author_tweets'
+      get 'tweets_and_replies', to: 'tweets#author_tweets_and_replies'
     end
 
   end
