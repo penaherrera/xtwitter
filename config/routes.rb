@@ -1,15 +1,30 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :tweets, only: [] do
-    post 'create', on: :collection
-    put 'update', on: :member
-    post 'like', on: :member, to: 'likes#create'
-    delete 'unlike', on: :member, to: 'likes#destroy'
-    post 'retweet', on: :member, to: 'retweets#create'
-    post 'bookmark', on: :member, to: 'bookmarks#create'
-    post 'quote', on: :member, to: 'quotes#create'
-    post 'reply', on: :member, to: 'replies#create'
+
+  resources :tweets do
+    member do
+      post 'create', to: 'tweets#create'
+      put 'update', to: 'tweets#update'
+      post 'reply', to: 'replies#create'
+      post 'quote', to: 'quotes#create'
+      post 'bookmark', to: 'bookmarks#create'
+      post 'retweet', to: 'retweets#create'
+      post 'like', to: 'tweets#like'
+      delete 'unlike', to: 'likes#destroy'
+    end
   end
+  
+  resources :authors do
+    member do
+      get 'tweets', to: 'tweets#author_tweets'
+    end
+
+  end
+
+
+  #post 'tweets/create', to: 'tweets#create'
+
+
   
   #Bookmark: Route a user would use to bookmark an existent tweet
   #Reply: Route a user would use to reply an existent tweet
