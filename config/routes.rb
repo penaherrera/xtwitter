@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       post 'quote', to: 'quotes#create'
       post 'bookmark', to: 'bookmarks#create'
       post 'retweet', to: 'retweets#create'
-      post 'like', to: 'tweets#like'
+      post 'like', to: 'likes#create'
       delete 'unlike', to: 'likes#destroy'
     end
   end
@@ -24,14 +24,7 @@ Rails.application.routes.draw do
   end
 
 
-  #post 'tweets/create', to: 'tweets#create'
 
-
-  
-  #Bookmark: Route a user would use to bookmark an existent tweet
-  #Reply: Route a user would use to reply an existent tweet
-  #Quote: Route a user would use to Quote an existent tweet
-  #Retweet: Route a user would use to retweet an existent tweet
   # Defines the root path route ("/")
   # root "articles#index"
 end
