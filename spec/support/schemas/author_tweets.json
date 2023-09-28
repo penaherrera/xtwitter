@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "tweets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "body": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "body", "created_at"]
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" },
+        "total_count": { "type": "integer" }
+      },
+      "required": ["page", "per_page", "total_count"]
+    }
+  },
+  "required": ["tweets", "pagination"]
+}
