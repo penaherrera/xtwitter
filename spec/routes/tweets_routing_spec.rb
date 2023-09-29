@@ -11,7 +11,7 @@ RSpec.describe "routes for Tweets", type: :routing do
         expect(post: "/tweets/1/create").to route_to(controller: "tweets", action: "create", id: "1")
     end
 
-    it "routes PUT /tweets/:id/update to the Tweetstweets controller" do
+    it "routes PUT /tweets/:id/update to the Tweets controller" do
         expect(put: "/tweets/1/update").to route_to(controller: "tweets", action: "update", id: "1")
     end
 

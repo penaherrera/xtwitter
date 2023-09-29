@@ -1,14 +1,12 @@
 {
   "type": "object",
   "properties": {
-    "reply": {
-      "type": "object",
-      "properties": {
-        "content": {
-          "type": "string"
-        }
-      },
-      "required": ["content"]
+    "id": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "string"
     }
-  }
+  },
+  "required": ["id", "content"]
 }
