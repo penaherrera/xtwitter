@@ -33,7 +33,7 @@ RSpec.describe "Tweet Update", type: :request do
 
      # expect(response).to have_http_status(:unprocessable_entity)
 
-      expect(response.body).to match_json_schema('tweet_update_schema.json')
+      expect(response.body).to match_json_schema('tweet_update.json')
 
     end
   end
