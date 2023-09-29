@@ -17,7 +17,7 @@ class Tweet < ApplicationRecord
     )
   
     if new_tweet.save 
-      return "A tweet was created successfully."
+      return new_tweet.to_json
     else
       return "Tweet creation failed."
     end

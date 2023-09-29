@@ -5,12 +5,13 @@ RSpec.describe "Tweet Creation", type: :request do
 
     it "creates a tweet successfully" do
       author = create(:author)
+      author_id = author.id
+      post "/tweets/#{author.id}/create", params: { body: "This is a test tweet", author_id: author.id }
 
-      post "/tweets/#{author.id}/create", params: { body: "This is a test tweet" }
+      puts response.body
 
-      expect(response).to have_http_status(200)
-
-      expect(response).to match_json_schema("tweet")
+      expect(response).to have_http_status(201)
+      expect(response).to match_response_schema("tweet")
     end
   end
 end

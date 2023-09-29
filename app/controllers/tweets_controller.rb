@@ -1,9 +1,12 @@
 class TweetsController < ApplicationController
+    
     def create
-      author = Author.find(params[:id])
-      tweet = author.tweets.create(tweet_params)
-      render json: tweet, status: :created
+        author = Author.find(params[:author_id])
+        tweet = Tweet.create_new_tweet(params[:body], author)
+        render json: tweet, status: :created
     end
+      
+      
   
     def tweet_stats
       tweet = Tweet.find(params[:id])
