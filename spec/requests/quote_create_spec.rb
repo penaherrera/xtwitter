@@ -6,15 +6,13 @@ RSpec.describe "Quote Creation", type: :request do
     it "creates a quote successfully" do
       author = create(:author)
       tweet = create(:tweet, author: author)
+      
+      post "/tweets/#{tweet.id}/quote", params: {content: 'this is a test quote', author_id: author.id, tweet_id: tweet.id }
 
-      quote = create(:quote, author: author, tweet: tweet)
+      puts response.body
 
-      quote_json = quote.to_json
-
-      post "/tweets/#{tweet.id}/quote", params: quote_json, headers: { 'Content-Type': 'application/json' }
-
-      expect(response).to have_http_status(200)
-      expect(response.body).to match_json_schema('quote_and_reply_create')
+      expect(response).to have_http_status(201)
+      expect(response).to match_response_schema('quote_and_reply_create')
 
 
     end
