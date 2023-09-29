@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "quote": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": ["content"]
+    }
+  }
+}
