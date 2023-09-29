@@ -34,7 +34,7 @@ RSpec.describe "routes for Tweets", type: :routing do
         expect(post: "/tweets/1/like").to route_to(controller: "likes", action: "create", id: "1")
     end
 
-    it "routes POST /tweets/:id/unlike to the Likes controller" do
+    it "routes DELETE /tweets/:id/unlike to the Likes controller" do
         expect(delete: "/tweets/1/unlike").to route_to(controller: "likes", action: "destroy", id: "1")
     end
       
