@@ -7,13 +7,13 @@ class Retweet < ApplicationRecord
 
   def self.create_retweet(author, tweet)
     if author && tweet
-    retweet = Retweet.new(
+    new_retweet = Retweet.new(
       author_id: author.id,
       tweet_id: tweet.id,
     )
 
-      if retweet.save
-        return "Retweet created successfully."
+      if new_retweet.save
+        return new_retweet.to_json
       else
         return "Retweet creation failed."
       end

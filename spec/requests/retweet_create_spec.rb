@@ -4,19 +4,17 @@ RSpec.describe "Create Retweet", type: :request do
   describe "POST /tweets/:id/retweet" do
 
     it "creates a retweet successfully" do
-      author = create(:author)
       author2 = create(:author)
       tweet = create(:tweet, author: author2)
+      author = create(:author)
 
-      post "/tweets/#{tweet.id}/retweet"
+      post "/tweets/#{tweet.id}/retweet", params: { author_id: author2.id, tweet_id: tweet.id }
 
-      expect(response).to have_http_status(200)
 
-      expect(response).to match_json_schema("retweet_create")
+      expect(response).to have_http_status(201)
 
-      json_response = JSON.parse(response.body)
+      expect(response).to match_response_schema("retweet_create")
 
-      expect(json_response["body"]).to eq(tweet.body)      
     end
   end
 end
