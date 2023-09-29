@@ -1,9 +1,12 @@
 {
   "type": "object",
   "properties": {
+    "id": {
+      "type": "integer"
+    },
     "body": {
       "type": "string"
     }
   },
-  "required": ["body"]
+  "required": ["id", "body"]
 }

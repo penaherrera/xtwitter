@@ -14,7 +14,7 @@ RSpec.describe "Bookmark Creation", type: :request do
 
       expect(response).to have_http_status(200)
 
-      expect(response.body).to match_json_schema('bookmark_create_schema.json')
+      expect(response.body).to match_json_schema('bookmark_create.json')
     end
   end
 end
