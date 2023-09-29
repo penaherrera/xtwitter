@@ -7,11 +7,9 @@ RSpec.describe "Bookmark Creation", type: :request do
     end
 
     it "creates a bookmark successfully" do
-      # Create an author and a tweet using FactoryBot
       author = create(:author)
       tweet = create(:tweet, author: author)
 
-      # Define the bookmark creation parameters
       bookmark_params = { bookmark: {} }
 
       bookmark_json = bookmark_params.to_json
