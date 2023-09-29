@@ -11,7 +11,7 @@ RSpec.describe "Create Like", type: :request do
 
       expect(response).to have_http_status(200)
 
-      expect(response).to match_json_schema("like_create.json")
+      expect(response).to match_json_schema("like_create")
 
       json_response = JSON.parse(response.body)
 

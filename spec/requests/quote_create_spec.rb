@@ -14,7 +14,7 @@ RSpec.describe "Quote Creation", type: :request do
       post "/tweets/#{tweet.id}/quote", params: quote_json, headers: { 'Content-Type': 'application/json' }
 
       expect(response).to have_http_status(200)
-      expect(response.body).to match_json_schema('quote_and_reply_create.json')
+      expect(response.body).to match_json_schema('quote_and_reply_create')
 
 
     end

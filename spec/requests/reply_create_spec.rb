@@ -12,7 +12,7 @@ RSpec.describe "Create Reply", type: :request do
 
       expect(response).to have_http_status(200)
 
-      expect(response).to match_json_schema('quote_and_reply_create.json')
+      expect(response).to match_json_schema('quote_and_reply_create')
 
       json_response = JSON.parse(response.body)
 

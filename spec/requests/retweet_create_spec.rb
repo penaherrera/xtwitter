@@ -12,7 +12,7 @@ RSpec.describe "Create Retweet", type: :request do
 
       expect(response).to have_http_status(200)
 
-      expect(response).to match_json_schema("retweet_create.json")
+      expect(response).to match_json_schema("retweet_create")
 
       json_response = JSON.parse(response.body)
 

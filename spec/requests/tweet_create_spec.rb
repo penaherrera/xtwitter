@@ -10,7 +10,7 @@ RSpec.describe "Tweet Creation", type: :request do
 
       expect(response).to have_http_status(200)
 
-      expect(response).to match_json_schema("tweet.json")
+      expect(response).to match_json_schema("tweet")
     end
   end
 end

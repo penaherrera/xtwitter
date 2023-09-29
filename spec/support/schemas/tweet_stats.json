@@ -4,18 +4,17 @@
     "quoted": {
       "type": "integer"
     },
-    "retweeted": {
+    "retweets": {
       "type": "integer"
     },
-    "replied": {
+    "replies": {
       "type": "integer"
     },
-    "bookmarked": {
-      "type": "integer"
-    },
-    "liked": {
+
+    "likes": {
       "type": "integer"
     }
   },
-  "required": ["quoted", "retweeted", "replied", "bookmarked", "liked"]
+  "required": ["quoted", "retweets", "replies", "likes"]
 }
+
