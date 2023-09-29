@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'json-schema'
 
 RSpec.describe "Quote Creation", type: :request do
   describe "POST /tweets/:id/quote" do

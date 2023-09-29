@@ -1,5 +1,3 @@
-# spec/integration/authors_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe 'Authors API', type: :request do

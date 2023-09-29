@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'json-schema'
+
 
 RSpec.describe "Tweet Update", type: :request do
   describe "PUT /tweets/:id/update" do

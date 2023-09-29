@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "bookmark": {
+      "type": "object"
+    }
+  }
+}
