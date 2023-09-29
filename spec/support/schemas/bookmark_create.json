@@ -1,8 +1,9 @@
 {
   "type": "object",
   "properties": {
-    "bookmark": {
-      "type": "object"
+    "id": {
+      "type": "integer"
     }
-  }
+  },
+  "required": ["id"]
 }
