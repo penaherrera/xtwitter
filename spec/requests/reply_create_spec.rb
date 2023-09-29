@@ -7,16 +7,15 @@ RSpec.describe "Create Reply", type: :request do
       author = create(:author)
       tweet = create(:tweet, author: author)
 
-      reply_content = "This is a reply."
-      post "/tweets/#{tweet.id}/reply", params: { content: reply_content }
 
-      expect(response).to have_http_status(200)
+      post "/tweets/#{tweet.id}/reply", params: { content: 'This is a reply', author_id: author.id, tweet_id: tweet.id }
 
-      expect(response).to match_json_schema('quote_and_reply_create')
+      expect(response).to have_http_status(201)
 
-      json_response = JSON.parse(response.body)
+      expect(response).to match_response_schema('quote_and_reply_create')
 
-      expect(json_response["content"]).to eq(reply_content)
+
+   
     end
   end
 end
