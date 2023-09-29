@@ -13,10 +13,6 @@ RSpec.describe "Create Bookmark", type: :request do
 
       expect(response).to match_response_schema("bookmark_create")
 
-      json_response = JSON.parse(response.body)
-
-      #expect(json_response["id"]).to be_a(Integer)
-
     end
   end
 end
