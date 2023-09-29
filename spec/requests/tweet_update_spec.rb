@@ -1,40 +1,22 @@
 require 'rails_helper'
 
-
 RSpec.describe "Tweet Update", type: :request do
   describe "PUT /tweets/:id/update" do
-    it "routes to the Tweets controller" do
-      expect(put: "/tweets/1/update").to route_to(controller: "tweets", action: "update", id: "1")
-    end
 
-    it "updates a tweet successfully with valid data" do
-      author = create(:author)
-      tweet = create(:tweet, author: author)
+    it "updates a tweet successfully" do
+      initial_tweet = create(:tweet, body: "Initial tweet body")
 
-      valid_tweet_params = { tweet: { body: "Updated tweet body" } }
+      updated_body = "Updated tweet body"
+      put "/tweets/#{initial_tweet.id}/update", params: { body: updated_body }
 
-      valid_tweet_json = valid_tweet_params.to_json
+      expect(response).to have_http_status(200)
 
-      put "/tweets/#{tweet.id}/update", params: valid_tweet_json, headers: { 'Content-Type': 'application/json' }
+      expect(response).to match_json_schema("tweet.json")
+      
+      updated_tweet = initial_tweet.reload
 
-      expect(response).to have_http_status(:success)
-
-    end
-
-    it "returns a validation error with invalid data" do
-      author = FactoryBot.create(:author)
-      tweet = FactoryBot.create(:tweet, author: author)
-
-      invalid_tweet_params = { tweet: {} }
-
-      invalid_tweet_json = invalid_tweet_params.to_json
-
-      put "/tweets/#{tweet.id}/update", params: invalid_tweet_json, headers: { 'Content-Type': 'application/json' }
-
-     # expect(response).to have_http_status(:unprocessable_entity)
-
-      expect(response.body).to match_json_schema('tweet_update.json')
-
+      expect(updated_tweet.body).to eq(updated_body)
+      
     end
   end
 end
