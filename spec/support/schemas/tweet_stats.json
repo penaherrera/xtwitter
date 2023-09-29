@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "quoted": {
+      "type": "integer"
+    },
+    "retweeted": {
+      "type": "integer"
+    },
+    "replied": {
+      "type": "integer"
+    },
+    "bookmarked": {
+      "type": "integer"
+    },
+    "liked": {
+      "type": "integer"
+    }
+  },
+  "required": ["quoted", "retweeted", "replied", "bookmarked", "liked"]
+}
