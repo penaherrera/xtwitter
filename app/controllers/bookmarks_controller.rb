@@ -7,5 +7,6 @@ class BookmarksController < ApplicationController
         bookmark = Bookmark.create_bookmark(author, tweet)
         render json: bookmark, status: :created
     end
+    
  end
   

@@ -6,13 +6,13 @@ class Like < ApplicationRecord
 
   def self.create_like(author, tweet)
     if author && tweet
-      like = Like.new(
+      new_like = Like.new(
         author_id: author.id,
         tweet_id: tweet.id,
       )
 
-      if like.save
-        return "Like created successfully."
+      if new_like.save
+        return new_like.to_json
       else
         return "Like creation failed."
       end
