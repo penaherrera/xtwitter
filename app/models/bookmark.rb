@@ -6,13 +6,13 @@ class Bookmark < ApplicationRecord
 
   def self.create_bookmark(author, tweet)
     if author && tweet
-      bookmark = Bookmark.new(
+      new_bookmark = Bookmark.new(
         author_id: author.id,
         tweet_id: tweet.id,
       )
 
-      if bookmark.save
-        return "Bookmark created successfully."
+      if new_bookmark.save
+        return new_bookmark.to_json
       else
         return "Bookmark creation failed."
       end

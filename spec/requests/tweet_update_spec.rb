@@ -11,7 +11,7 @@ RSpec.describe "Tweet Update", type: :request do
 
       expect(response).to have_http_status(200)
 
-      expect(response).to match_json_schema("tweet")
+      expect(response).to match_response_schema("tweet")
       
       updated_tweet = initial_tweet.reload
 
