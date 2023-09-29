@@ -1,0 +1,16 @@
+{
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "body"]
+    }
+  }
+  
