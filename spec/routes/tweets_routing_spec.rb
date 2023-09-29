@@ -23,7 +23,7 @@ RSpec.describe "routes for Tweets", type: :routing do
         expect(post: "/tweets/1/quote").to route_to(controller: "quotes", action: "create", id: "1")
     end
 
-    it "routes POST /tweets/:id/bookmar to the Bookmarks controller" do
+    it "routes POST /tweets/:id/bookmark to the Bookmarks controller" do
         expect(post: "/tweets/1/bookmark").to route_to(controller: "bookmarks", action: "create", id: "1")
     end
 

@@ -5,7 +5,7 @@ RSpec.describe "Quote Creation", type: :request do
     it "routes to the Quotes controller" do
       expect(post: "/tweets/1/quote").to route_to(controller: "quotes", action: "create", id: "1")
     end
-
+# Ensure the response is successful
     it "creates a quote successfully with valid data" do
       author = create(:author)
       tweet = create(:tweet, author: author)

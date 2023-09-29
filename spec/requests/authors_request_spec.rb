@@ -17,7 +17,7 @@ RSpec.describe 'Authors API', type: :request do
     it 'returns the correct author name in the JSON response' do
       get "/authors/#{author.id}"
 
-      expect(response).to have_http_status(200) # Ensure the response is successful
+      expect(response).to have_http_status(200) 
 
       author_response = JSON.parse(response.body)
       expect(author_response['name']).to eq(author.name)
