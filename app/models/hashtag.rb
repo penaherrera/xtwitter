@@ -1,5 +1,8 @@
 class Hashtag < ApplicationRecord
-    validates :name, presence: true
+    
+  has_many :taggings
+  has_many :tweets, through: :taggings
+  validates :name, presence: true
   
     def self.create_hashtag(tweet)
       tweet_body = tweet.body
@@ -27,7 +30,7 @@ class Hashtag < ApplicationRecord
         )
   
         if new_hashtag.save
-          return "Hashtag created successfully: #{hashtag_word}"
+          return "Hashtag created successfully"
         else
           return "Hashtag creation failed."
         end

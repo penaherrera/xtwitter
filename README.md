@@ -2,30 +2,9 @@
 
 **Exercise Requirements:**
 
-Based on the models and migrations you created in the previous practice add the following query methods to your models:
+Based on the worked done in the previous practices you need to create tests that ensures that ensures the relationship, validations and scopes work as they were required, all your test cases should be done using factories and data similar to what a real production application should use.
 
-
-- User tweets Scope: Create a new scope that retrieves the tweets of a user
-
-- Tweets and Replies: Create a new scope that retrieves the tweets and replies of that same user
-
-- Followers Count: Create a new scope that retrieves the number of followers a user has
-
-- Following Count: Create a new scope that retrieves the number of users a user follows
-
-- Retweets counts: Create a new scope that retrieves the number of retweets
-
-- Quotes count: Create a new scope that retrieves the number of quotes
-
-- Bookmarked tweets: Creates a new scope that retrieves the bookmarked tweets by a user
-
-- Retweet method: Create a method that encapsulates the retweet logic accepting a user a parameter
-
-- QuoteTweet: Create a method that encapsulates the retweet logic accepting a user an a text body as parameter
-
-- Like a tweet: Create a method that encapsulates the like logic accepting a user
-
-- Hashtag creation Method: Create a method that encapsulates the logic to scan a tweet body text and creates a new hashtag if it doesn’t exists and creates the new association between tweet and hashtag
+If you had comments in your PR make sure to address them over in this practice because they will be evaluated 
 
 ## Requirements and dependencies:
 
@@ -47,7 +26,7 @@ Navigate to the project directory.
 
 ### In case doesn't work try:
 Clone the branch.
--    git clone -b m2-practice-lab-2 https://github.com/penaherrera/xtwitter.git
+-    git clone -b m3-practice-lab-1 https://github.com/penaherrera/xtwitter.git
     
  Navigate to the project directory.
 -    cd xtwitter
