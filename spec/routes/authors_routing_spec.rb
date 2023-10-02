@@ -7,7 +7,7 @@ RSpec.describe "routes for Tweets", type: :routing do
     end
 
     it "routes /authors/1/tweets_and_replies to the Tweets controller" do
-        expect(get: "/authors/1/tweets").to route_to(controller: "tweets", action: "author_tweets_and_replies", id: "1")
+        expect(get: "/authors/1/tweets_and_replies").to route_to(controller: "tweets", action: "author_tweets_and_replies", id: "1")
     end
     
 end
