@@ -8,14 +8,12 @@ RSpec.describe "Create Reply", type: :request do
       tweet = create(:tweet, author: author)
 
 
-      post "/tweets/#{tweet.id}/reply", params: { content: 'This is a reply', author_id: author.id, tweet_id: tweet.id }
+      post "/api/tweets/#{tweet.id}/reply", params: { content: 'This is a reply', author_id: author.id, tweet_id: tweet.id }
 
       expect(response).to have_http_status(201)
 
       expect(response).to match_response_schema('quote_and_reply_create')
 
-
-   
     end
   end
 end

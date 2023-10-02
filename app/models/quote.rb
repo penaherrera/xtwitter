@@ -14,7 +14,7 @@ class Quote < ApplicationRecord
     )
 
     if new_quote.save
-      return new_quote.to_json
+      return new_quote
     else
       return "Quote creation failed."
     end

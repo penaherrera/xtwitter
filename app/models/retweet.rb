@@ -13,7 +13,7 @@ class Retweet < ApplicationRecord
     )
 
       if new_retweet.save
-        return new_retweet.to_json
+        return new_retweet
       else
         return "Retweet creation failed."
       end
