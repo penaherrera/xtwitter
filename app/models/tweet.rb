@@ -2,6 +2,7 @@ class Tweet < ApplicationRecord
   belongs_to :author
   has_many :replies
   has_many :quotes
+  has_many :likes
   has_many :retweets
   has_many :taggings
   has_many :hashtags, through: :taggings
