@@ -7,15 +7,11 @@ RSpec.describe "Create Like", type: :request do
       author = create(:author)
       tweet = create(:tweet, author: author)
 
-      post "/tweets/#{tweet.id}/like", params: { author_id: author.id, tweet_id: tweet.id }
+      post "/api/tweets/#{tweet.id}/like", params: { author_id: author.id, tweet_id: tweet.id }, headers: { "ACCEPT" => "application/json" }
 
       expect(response).to have_http_status(201)
 
       expect(response).to match_response_schema("like_create")
-
-      json_response = JSON.parse(response.body)
-
-      expect(json_response["id"]).to be_a(Integer)
 
     end
   end

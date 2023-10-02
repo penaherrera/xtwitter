@@ -1,15 +1,11 @@
-class Api::BookmarksController < ApplicationController
-    
+class Api::BookmarksController < Api::BaseController
     def create
-        author = Author.find(params[:author_id])
-        tweet = Tweet.find(params[:tweet_id])
+      @author = Author.find(params[:author_id])
+      @tweet = Tweet.find(params[:tweet_id])
   
-        bookmark = Bookmark.create_bookmark(author, tweet)
-        
-        render 'api/bookmarks/create', status: :created
-        #render template: 'bookmarks/create', status: :created
-        #render json: bookmark, status: :created
+      @bookmark = Bookmark.create_bookmark(@author, @tweet)
+  
+      render 'api/bookmarks/create', status: :created
     end
-    
- end
+  end
   
