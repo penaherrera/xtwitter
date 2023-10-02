@@ -23,13 +23,12 @@ RSpec.describe Quote, type: :model do
         tweet2= create(:tweet, author: author)
   
         #this line is just to create the quote content with Faker
-        quote = create(:quote, author: author2, tweet: tweet)
+        quote = 'this is a test quote'
     
   
-        Quote.create_quote(quote.content, author2, tweet)
-        Quote.create_quote(quote.content, author2, tweet2)
-        expect(Quote.where(author: author2, tweet: tweet)).to exist
-        expect(Quote.where(author: author2, tweet: tweet2)).to exist
+        Quote.create_quote(quote, author2, tweet)
+        Quote.create_quote(quote, author2, tweet2)
+        expect(Quote.quotes_from_author(author2.id).count).to eq(2)       
 
       end
     end

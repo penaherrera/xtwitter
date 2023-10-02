@@ -18,6 +18,8 @@ RSpec.describe Author, type: :model do
         it { should validate_presence_of(:username) }
         it { should validate_presence_of(:password) }
         it { should validate_length_of(:password).is_at_least(12) }
+        it { should allow_value('IoooGooUuoo123!').for(:password) }
+        it { should_not allow_value('iogoo').for(:password) }
     end
     
 end
