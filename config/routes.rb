@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :tweets do
     member do
       get 'stats', to: 'tweets#tweet_stats'
-      post 'create', to: 'tweets#create'
-      put 'update', to: 'tweets#update'
       post 'reply', to: 'replies#create'
       post 'quote', to: 'quotes#create'
       post 'bookmark', to: 'bookmarks#create'

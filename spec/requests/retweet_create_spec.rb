@@ -10,7 +10,6 @@ RSpec.describe "Create Retweet", type: :request do
 
       post "/tweets/#{tweet.id}/retweet", params: { author_id: author2.id, tweet_id: tweet.id }
 
-
       expect(response).to have_http_status(201)
 
       expect(response).to match_response_schema("retweet_create")
