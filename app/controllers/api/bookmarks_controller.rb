@@ -5,7 +5,10 @@ class Api::BookmarksController < ApplicationController
         tweet = Tweet.find(params[:tweet_id])
   
         bookmark = Bookmark.create_bookmark(author, tweet)
-        render json: bookmark, status: :created
+        
+        render 'api/bookmarks/create', status: :created
+        #render template: 'bookmarks/create', status: :created
+        #render json: bookmark, status: :created
     end
     
  end

@@ -7,7 +7,7 @@ RSpec.describe "Create Bookmark", type: :request do
       author = create(:author)
       tweet = create(:tweet, author: author)
 
-      post "/tweets/#{tweet.id}/bookmark", params: { author_id: author.id, tweet_id: tweet.id }
+      post "/api/tweets/#{tweet.id}/bookmark", params: { author_id: author.id, tweet_id: tweet.id }
 
       expect(response).to have_http_status(201)
 
