@@ -1,4 +1,4 @@
-class TweetsController < ApplicationController
+class Api::TweetsController < ApplicationController
     
     def create
         author = Author.find(params[:author_id])

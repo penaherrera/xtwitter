@@ -1,4 +1,4 @@
-class BookmarksController < ApplicationController
+class Api::BookmarksController < ApplicationController
     
     def create
         author = Author.find(params[:author_id])

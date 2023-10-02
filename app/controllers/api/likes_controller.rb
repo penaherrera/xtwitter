@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
 
     def create
         author = Author.find(params[:author_id])

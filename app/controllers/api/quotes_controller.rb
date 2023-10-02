@@ -1,4 +1,4 @@
-class QuotesController < ApplicationController
+class Api::QuotesController < ApplicationController
 
     def create
         author = Author.find(params[:author_id])
