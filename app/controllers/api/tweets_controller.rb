@@ -1,10 +1,12 @@
 class Api::TweetsController < ApplicationController
     
     def create
-        author = Author.find(params[:author_id])
-        tweet = Tweet.create_new_tweet(params[:body], author)
-        render json: tweet, status: :created
-    end
+        @author = Author.find(params[:author_id])
+        @tweet = Tweet.create_new_tweet(params[:body], @author)
+        #render json: tweet, status: :created
+        render 'api/tweets/create', status: :created
+
+      end
       
       
   

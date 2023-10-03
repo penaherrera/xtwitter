@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root "main#home"
+  
+  
+  get 'main/home'
   namespace :api do
     
     resources :tweets do
       member do
+        post 'tweet', to: 'tweets#create'
         get 'stats', to: 'tweets#tweet_stats'
         post 'reply', to: 'replies#create'
         post 'quote', to: 'quotes#create'

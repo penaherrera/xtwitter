@@ -5,7 +5,7 @@ RSpec.describe "Tweet Creation", type: :request do
 
     it "creates a tweet successfully" do
       author = create(:author)
-      post "/tweets/#{author.id}/create", params: { body: "This is a test tweet", author_id: author.id }
+      post "/api/tweets/#{author.id}/create", params: { body: "This is a test tweet", author_id: author.id }, headers: { "ACCEPT" => "application/json" }
 
 
 
