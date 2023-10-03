@@ -16,7 +16,7 @@ class Quote < ApplicationRecord
     if new_quote.save
       return new_quote
     else
-      return "Quote creation failed."
+      return nil
     end
   end
 end
