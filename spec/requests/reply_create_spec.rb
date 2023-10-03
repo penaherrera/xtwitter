@@ -8,7 +8,7 @@ RSpec.describe "Create Reply", type: :request do
       tweet = create(:tweet, author: author)
 
 
-      post "/api/tweets/#{tweet.id}/reply", params: { content: 'This is a reply', author_id: author.id, tweet_id: tweet.id }
+      post "/api/tweets/#{tweet.id}/reply", params: { content: 'This is a reply', author_id: author.id, tweet_id: tweet.id }, headers: { "ACCEPT" => "application/json" }
 
       expect(response).to have_http_status(201)
 
