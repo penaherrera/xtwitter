@@ -8,7 +8,7 @@ RSpec.describe "Create Retweet", type: :request do
       tweet = create(:tweet, author: author2)
       author = create(:author)
 
-      post "/tweets/#{tweet.id}/retweet", params: { author_id: author2.id, tweet_id: tweet.id }
+      post "/api/tweets/#{tweet.id}/retweet", params: { author_id: author2.id, tweet_id: tweet.id }, headers: { "ACCEPT" => "application/json" }
 
       expect(response).to have_http_status(201)
 
