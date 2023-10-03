@@ -1,4 +1,4 @@
-class Api::RepliesController < ApplicationController
+class Api::RepliesController < Api::BaseController
 
     def create
         @author = Author.find(params[:author_id])

@@ -1,4 +1,4 @@
-class Api::QuotesController < ApplicationController
+class Api::QuotesController < Api::BaseController
 
     def create
         @author = Author.find(params[:author_id])

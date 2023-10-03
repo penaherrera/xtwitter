@@ -1,4 +1,4 @@
-class Api::RetweetsController < ApplicationController
+class Api::RetweetsController < Api::BaseController
 
     def create
         @author = Author.find(params[:author_id])
