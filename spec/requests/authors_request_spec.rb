@@ -2,25 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Authors API', type: :request do
   describe 'GET /authors/:id' do
-    let(:author) do
-      Author.create(
-        username: 'john_doe',
-        name: 'John',
-        lastname: 'Doe',
-        email: 'john@example.com',
-        password: 'password123',
-        created_at: Time.now,
-        updated_at: Time.now
-      )
-    end
 
-    it 'returns the correct author name in the JSON response' do
-      get "/authors/#{author.id}"
+    it 'returns the correct author response in the JSON response' do
+      author = create(:author)
 
-      expect(response).to have_http_status(200) 
+      get "/api/authors/#{author.id}", params: { id: author.id }, headers: { "ACCEPT" => "application/json" }
 
-      author_response = JSON.parse(response.body)
-      expect(author_response['name']).to eq(author.name)
+      expect(response).to have_http_status(200)
+      
+      expect(response).to match_response_schema("author")
+ 
+
     end
   end
 end

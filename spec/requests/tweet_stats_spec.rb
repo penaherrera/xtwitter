@@ -13,7 +13,7 @@ RSpec.describe "Tweet Stats", type: :request do
       #create(:bookmark, tweet: tweet, author: author2)
       create(:quote, tweet: tweet, author: author2)
 
-      get "/tweets/#{tweet.id}/stats"
+      get "/api/tweets/#{tweet.id}/stats"
 
       expect(response).to have_http_status(200)
 
