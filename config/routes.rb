@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :authors
   namespace :api do
     
     resources :tweets do
