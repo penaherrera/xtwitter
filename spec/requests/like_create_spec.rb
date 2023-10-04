@@ -7,12 +7,18 @@ RSpec.describe "Create Like", type: :request do
       author = create(:author)
       tweet = create(:tweet, author: author)
 
-      post "/api/tweets/#{tweet.id}/like", params: { author_id: author.id, tweet_id: tweet.id }, headers: { "ACCEPT" => "application/json" }
+      # Generate a valid authentication token using the JsonWebToken class
+      authentication_token = JsonWebToken.new.encode({ sub: author.id })
+
+      post "/api/tweets/#{tweet.id}/like",
+        params: { tweet_id: tweet.id },
+        headers: {
+          "ACCEPT" => "application/json",
+          "Authorization" => "Bearer #{authentication_token}"
+        }
 
       expect(response).to have_http_status(201)
-
       expect(response).to match_response_schema("like_create")
-
     end
   end
 end
