@@ -1,5 +1,6 @@
 class Api::TweetsController < Api::BaseController
     
+  before_action :authenticate_user!
     def create
         @author = Author.find(params[:author_id])
         @tweet = Tweet.create_new_tweet(params[:body], @author)

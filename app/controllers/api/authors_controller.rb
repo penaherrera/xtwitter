@@ -1,5 +1,7 @@
 class Api::AuthorsController < Api::BaseController
-    def show
+  
+  before_action :authenticate_user!
+  def show
       @author = Author.find(params[:id])
       render 'api/authors/show', status: :ok
     end
