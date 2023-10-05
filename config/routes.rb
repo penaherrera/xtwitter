@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :authors
   namespace :api do
+    post 'register', to: 'registration#create'
     post :auth, to: "authentication#create"
     resources :tweets do
       member do
