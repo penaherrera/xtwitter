@@ -322,7 +322,7 @@ module Devise
       def authenticate!
         token = request.headers.fetch("Authorization", "").split(" ").last
         payload = JsonWebToken.decode(token)
-        success! Author.find(payload["sub"])
+        success! Author.find(payload["id"])
       rescue JWT::ExpiredSignature
         fail! "Auth token has expired"
       rescue JWT::DecodeError
