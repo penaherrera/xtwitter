@@ -6,18 +6,30 @@ RSpec.describe "Tweet Stats", type: :request do
       author = create(:author)
       author2 = create(:author)
       tweet = create(:tweet, author: author)
+      authentication_token = JsonWebToken.encode({ sub: author2.id })
+
 
       create(:like, tweet: tweet, author: author2)
       create(:retweet, tweet: tweet, author: author2)
       create(:reply, tweet: tweet, author: author2)
       #create(:bookmark, tweet: tweet, author: author2)
       create(:quote, tweet: tweet, author: author2)
-
-      get "/api/tweets/#{tweet.id}/stats"
+      #debugger
+      
+      get "/api/tweets/#{tweet.id}/stats", 
+      params: { tweet_id: tweet.id },
+      headers: {
+        "ACCEPT": "application/json",
+        "Authorization": "Bearer #{authentication_token}"
+      }
+      print response.body
+      #debugger
 
       expect(response).to have_http_status(200)
-
       expect(response).to match_response_schema("tweet_stats")
+      expect(authentication_token).not_to be_nil
+      decoded_payload = JsonWebToken.decode(authentication_token)
+      expect(decoded_payload["sub"]).to eq(Author.last.id)
 
       json_response = JSON.parse(response.body)
 

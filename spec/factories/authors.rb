@@ -4,6 +4,7 @@
     name { Faker::Name.name }
     lastname { Faker::Name.last_name }
     email { Faker::Internet.email }
-    password { 'IoogoRubyOnRails123!' }
+    password { 'IoooGooo123!!!' }
+    #password_confirmation { 'IoogoRubyOnRails123!' }
   end
 end

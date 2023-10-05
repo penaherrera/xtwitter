@@ -6,17 +6,20 @@ class Api::TweetsController < Api::BaseController
         render json: tweet, status: :created
     end
       
-      
+     def update
+      #update method, update logic for the test tweet_update
+     end
   
     def tweet_stats
-      tweet = Tweet.find(params[:id])
+      @tweet = Tweet.find(params[:id])
       stats = {
-        likes: tweet.likes.count,
-        retweets: tweet.retweets.count,
-        replies: tweet.replies.count,
+        likes: @tweet.likes.count,
+        retweets: @tweet.retweets.count,
+        replies: @tweet.replies.count,
         #bookmarks: tweet.bookmarks.count,
-        quoted: tweet.quotes.count
+        quoted: @tweet.quotes.count
       }
+      #render 'api/tweets/stats', status: :ok
       render json: stats
     end
   
