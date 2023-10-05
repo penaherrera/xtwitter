@@ -1,5 +1,5 @@
 class AuthenticationController < Api::BaseController
-    skip_before_action :authenticate_token!
+    #skip_before_action :authenticate_token!
     
     def create
         author = Author.find_by(email: params[:author][:email])
