@@ -5,6 +5,5 @@
     lastname { Faker::Name.last_name }
     email { Faker::Internet.email }
     password { 'IoogoRubyOnRails123!' }
-    #password { Faker::Internet.password( min_length:12, max_length:15, mix_case: true, special_characters: true ) }
   end
 end

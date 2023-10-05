@@ -1,7 +1,9 @@
 class Api::RegistrationController < ApplicationController
-     def create
+    skip_before_action :authenticate_author!
+    def create
+        puts "Params received: #{params.inspect}"
         @author = Author.new(author_params)
-    
+
         if @author.save
             token = JsonWebToken.encode(author_id: @author.id)
             render json: { token: token }, status: :created
@@ -11,9 +13,11 @@ class Api::RegistrationController < ApplicationController
     end
     
     private
-    
+
+
     def author_params
-        params.require(:author).permit(:email, :password, :username) # Adjust for your Author model
+        params.require(:author).permit(:username, :name, :lastname, :email, :password)
     end
+      
 
 end
