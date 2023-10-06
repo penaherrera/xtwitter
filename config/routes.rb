@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #get 'session/create'
   #get 'session/destroy'
-  devise_for :authors
+  devise_for :authors, controllers: {registrations: 'registration'}
   #root to: 'authors/sessions#create'
   namespace :api do
     delete 'logout', to: 'session#destroy'
