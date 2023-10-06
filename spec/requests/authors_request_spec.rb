@@ -8,7 +8,8 @@ RSpec.describe 'Authors API', type: :request do
       authentication_token = JsonWebToken.encode({ id: author.id })
       
       get "/api/authors/#{author.id}", 
-      params: { id: author.id }, headers: { "ACCEPT" => "application/json",
+      params: { id: author.id },
+       headers: { "ACCEPT" => "application/json",
       "Authorization": "Bearer #{authentication_token}"
     }
       #debugger
