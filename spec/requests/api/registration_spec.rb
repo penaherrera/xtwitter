@@ -15,6 +15,7 @@ RSpec.describe "Api::Registrations", type: :request do
 
       post "/api/register", params: registration_data, headers: { "ACCEPT" => "application/json" }
 
+      debugger
       expect(response).to have_http_status(201)
 
       response_json = JSON.parse(response.body)
@@ -22,7 +23,7 @@ RSpec.describe "Api::Registrations", type: :request do
 
       expect(token).not_to be_nil
       decoded_payload = JsonWebToken.decode(token)
-      expect(decoded_payload["author_id"]).to eq(Author.last.id)
+      expect(decoded_payload["sub"]).to eq(Author.last.id)
     end
   end
 end

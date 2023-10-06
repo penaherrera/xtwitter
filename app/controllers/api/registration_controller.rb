@@ -4,8 +4,8 @@ class Api::RegistrationController < ApplicationController
         puts "Params received: #{params.inspect}"
         @author = Author.new(author_params)
 
-        if @author.save
-            token = JsonWebToken.encode(author_id: @author.id)
+        if @author.save!
+            token = JsonWebToken.encode("sub": @author.id)
             render json: { token: token }, status: :created
         else
             render json: { errors: @author.errors.full_messages }, status: :unprocessable_entity
