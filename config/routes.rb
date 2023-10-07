@@ -28,4 +28,8 @@ Rails.application.routes.draw do
 
     end
   end
+
+  namespace :web do
+    resources :tweets
+  end
 end

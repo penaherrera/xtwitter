@@ -1,0 +1,11 @@
+
+
+<h1>Twitter Clone Feed</h1>
+
+<ul>
+  <% @random_tweets.each do |tweet| %>
+    <li>
+      <strong><%= tweet.author.username %>:</strong> <%= tweet.body %>
+    </li>
+  <% end %>
+</ul>
