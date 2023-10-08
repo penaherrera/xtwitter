@@ -15,7 +15,8 @@ class Api::SessionController < Api::BaseController
   end
 
   def destroy
-    session[:author_id] = nil
+    sign_out(current_author) 
+    #session[:author_id] = nil
     redirect_to new_author_session_path, notice: 'Cerraste sesión con éxito'
   end
 

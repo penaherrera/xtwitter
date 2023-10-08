@@ -1,11 +1,16 @@
+<h1>Twitter Feed</h1>
+
+<% @random_tweets.each do |tweet| %>
+  <div class="tweet">
+    <p><strong>Author:</strong> <%= tweet.author.username %></p>
+    <p><strong>Body:</strong> <%= tweet.body %></p>
+    <p><strong>Created at:</strong> <%= tweet.created_at %></p>
+  </div>
+<% end %>
+
+<%= link_to 'New Tweet', new_web_tweet_path %>
 
 
-<h1>Twitter Clone Feed</h1>
 
-<ul>
-  <% @random_tweets.each do |tweet| %>
-    <li>
-      <strong><%= tweet.author.username %>:</strong> <%= tweet.body %>
-    </li>
-  <% end %>
-</ul>
+
+

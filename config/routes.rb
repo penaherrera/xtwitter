@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   #get 'session/create'
   #get 'session/destroy'
-  devise_for :authors, controllers: {registrations: 'registration'}
+  devise_for :authors, controllers: {registrations: 'registration', sessions: 'session'}
   #root to: 'authors/sessions#create'
   namespace :api do
-    delete 'logout', to: 'session#destroy'
+    delete 'logout', to: 'sessions#destroy', as: :logout
+    #delete 'logout', to: 'session#destroy'
     post 'login', to: 'session#create'
     post 'register', to: 'registration#create'
     post :auth, to: "authentication#create"
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   namespace :web do
+    delete 'logout' => 'session#destroy', as: :destroy_author_session
     resources :tweets
   end
 end

@@ -1,7 +1,7 @@
 class Web::BaseController < ApplicationController
     before_action :set_default_format
     before_action :authenticate_author!
-    layout 'web'
+    #layout 'web'
   
     private
   
