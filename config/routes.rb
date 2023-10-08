@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  #get 'session/create'
-  #get 'session/destroy'
+
   devise_for :authors, controllers: {registrations: 'registration', sessions: 'session'}
-  #root to: 'authors/sessions#create'
+  
+  root to: 'web/tweets#index'
+  
   namespace :api do
     delete 'logout', to: 'sessions#destroy', as: :logout
     #delete 'logout', to: 'session#destroy'
     post 'login', to: 'session#create'
     post 'register', to: 'registration#create'
     post :auth, to: "authentication#create"
+    
     resources :tweets do
       member do
         get 'stats', to: 'tweets#tweet_stats'
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   end
 
   namespace :web do
+    get 'author/:username', to: 'authors#show', as: :author_profile
     delete 'logout' => 'session#destroy', as: :destroy_author_session
     resources :tweets
   end
