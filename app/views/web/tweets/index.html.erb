@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Feed</title>
+    <link rel="stylesheet" href="app/assets/stylesheets/tweets.css">
+</head>
+<body>
+    <h1>Twitter Feed</h1>
+
+    <%= button_to 'Sign Out', destroy_author_session_path, method: :delete %>
+
+    <%= link_to 'New Tweet', new_web_tweet_path %>
+
+    <% if current_author %>
+        <p><strong>Author:</strong> <%= link_to 'Profile', author_profile_path(username: tweet.author.username) %></p>
+    <% end %>
+
+    <% @random_tweets.each do |tweet| %>
+        <div class="tweet">
+            <p><strong>Author:</strong> <%= tweet.author.username %></p>
+            <p><strong>Body:</strong> <%= tweet.body %></p>
+            <p><strong>Created at:</strong> <%= tweet.created_at %></p>
+        </div>
+    <% end %>
+</body>
+</html>

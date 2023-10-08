@@ -19,13 +19,13 @@ RSpec.describe Reply, type: :model do
         author2 = create(:author)
         tweet = create(:tweet, author: author)
         tweet2= create(:tweet, author: author)
+        content = 'this is the reply content'
   
-       
-        reply1 = create(:reply, author: author2, tweet: tweet)
-        reply2 = create(:reply, author: author2, tweet: tweet2)
-    
-        expect(Reply.where(author: author2, tweet: tweet)).to exist
-        expect(Reply.where(author: author2, tweet: tweet2)).to exist
+        
+        reply1 = Reply.create_reply(content, author2, tweet)
+        reply2 = Reply.create_reply(content, author2, tweet)
+        
+        expect(Reply.replies_from_author(author2.id).count).to eq(2)       
 
       end
     end
