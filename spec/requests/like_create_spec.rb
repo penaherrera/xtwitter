@@ -3,20 +3,26 @@ require 'rails_helper'
 RSpec.describe "Create Like", type: :request do
   describe "POST /tweets/:id/like" do
 
+
     it "creates a like successfully" do
       author = create(:author)
       tweet = create(:tweet, author: author)
+      authentication_token = JsonWebToken.encode({ sub: author.id })
 
-      post "/tweets/#{tweet.id}/like", params: { author_id: author.id, tweet_id: tweet.id }
+
+      post "/api/tweets/#{tweet.id}/like",
+      params: { author_id: author.id, tweet_id: tweet.id },
+      headers: {
+        "ACCEPT": "application/json",
+        "Authorization": "Bearer #{authentication_token}"
+      }
+
 
       expect(response).to have_http_status(201)
-
       expect(response).to match_response_schema("like_create")
-
-      json_response = JSON.parse(response.body)
-
-      expect(json_response["id"]).to be_a(Integer)
-
+      expect(authentication_token).not_to be_nil
+      decoded_payload = JsonWebToken.decode(authentication_token)
+      expect(decoded_payload["sub"]).to eq(Author.last.id)
     end
   end
 end

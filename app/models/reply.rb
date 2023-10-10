@@ -14,7 +14,7 @@ class Reply < ApplicationRecord
     )
 
     if new_reply.save
-      return new_reply.to_json
+      return new_reply
     else
       return "Reply creation failed."
     end

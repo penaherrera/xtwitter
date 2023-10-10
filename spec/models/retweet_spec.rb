@@ -22,8 +22,7 @@ RSpec.describe Retweet, type: :model do
         retweet1 = create(:retweet, author: author2, tweet: tweet)
         retweet2 = create(:retweet, author: author2, tweet: tweet2)
     
-        expect(Retweet.where(author: author2, tweet: tweet)).to exist
-        expect(Retweet.where(author: author2, tweet: tweet2)).to exist
+        expect(Retweet.retweets_from_author(author2.id).count).to eq(2)       
 
       end
     end
@@ -35,8 +34,7 @@ RSpec.describe Retweet, type: :model do
       tweet = create(:tweet, author: author)
       author2 = create(:author)
 
-     
-      retweet = create(:retweet, author: author2, tweet: tweet)
+     retweet = Retweet.create_retweet(author2,tweet)
       expect(Retweet.last.author).to eq(author2)
     end
 

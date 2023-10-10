@@ -12,7 +12,7 @@ class Like < ApplicationRecord
       )
 
       if new_like.save
-        return new_like.to_json
+        return new_like
       else
         return "Like creation failed."
       end

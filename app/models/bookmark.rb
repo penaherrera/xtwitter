@@ -12,7 +12,7 @@ class Bookmark < ApplicationRecord
       )
 
       if new_bookmark.save
-        return new_bookmark.to_json
+        return new_bookmark
       else
         return "Bookmark creation failed."
       end

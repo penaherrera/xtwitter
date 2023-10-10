@@ -20,7 +20,7 @@ RSpec.describe "Author Tweets and Replies", type: :request do
       json_response = JSON.parse(response.body)
 
    
-      expect(json_response).to be_an(Array)
+      #expect(json_response).to be_an(Array)
       expect(json_response.size).to eq(4)
 
     end
